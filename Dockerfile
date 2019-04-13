@@ -21,9 +21,8 @@ RUN \
  mkdir -p /usr/lib/sonarr/bin && \
   #if [ -z ${SONARR_VERSION+x} ]; then \
 	SONARR_VERSION=$(curl -sX GET https://services.sonarr.tv/v1/download/${SONARR_BRANCH}?version=3 \
-	| jq -r '.version'); \
+	| jq -r '.version') && \
  #fi && \
- && \
  curl -o \
 	/tmp/sonarr.tar.gz -L \
 	"https://download.sonarr.tv/v3/${SONARR_BRANCH}/${SONARR_VERSION}/Sonarr.${SONARR_BRANCH}.${SONARR_VERSION}.linux.tar.gz" && \
